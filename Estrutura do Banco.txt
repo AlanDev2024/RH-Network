@@ -1,0 +1,22 @@
+CREATE DATABASE cadastro_empresas;
+USE cadastro_empresas;
+
+CREATE TABLE empresas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_empresa VARCHAR(255) NOT NULL,
+    atuacao VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Inserir usuário admin com senha correta (admin123)
+INSERT INTO usuarios (usuario, senha, nome) VALUES 
+('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Administrador');
